@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">
+                {{ object.user.get_full_name }} / {{ object.location }}
+                | <span><a href="{% url "profile-update" pk=object.id %}">Update</a></span>
+            </h5>
+            <p class="card-text">{{ object.bio }}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-sm-3">Birth date</div>
+                    <div class="col-sm-6">{{ object.birth_date }}</div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-sm-3">Gender</div>
+                    <div class="col-sm-6">{{ object.gender }}</div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-sm-3">Height</div>
+                    <div class="col-sm-6">{{ object.height }}</div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-sm-3">Weight</div>
+                    <div class="col-sm-6">{{ object.weight }}</div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-sm-3">Daily calories</div>
+                    <div class="col-sm-6">{{ object.daily_calories }}</div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-sm-3">Actual calories</div>
+                    <div class="col-sm-6">{{ object.actual_calories }}</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <br>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">
+                Medical info
+            </h5>
+        </div>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-sm-3">Allergies</div>
+                <div class="col-sm-6">{{ object.medical_info.allergies }}</div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-sm-3">Blood type</div>
+                <div class="col-sm-6">{{ object.medical_info.blood_type }}</div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-sm-3">Condition</div>
+                <div class="col-sm-6">{{ object.medical_info.condition }}</div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-sm-3">Notes</div>
+                <div class="col-sm-6">{{ object.medical_info.notes }}</div>
+            </div>
+        </li>
+    </div>
+    <br>
+    {% if object.program %}
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">
+                    Program
+                </h5>
+            </div>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-sm-3">Prohibited foods</div>
+                    <div class="col-sm-6">{{ object.program.prohibitedFoods }}</div>
+                </div>
+            </li>
+        </div>
+    {% endif %}
+{% endblock %}
