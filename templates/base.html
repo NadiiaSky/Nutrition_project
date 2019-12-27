@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" style="height: 4.5em">
     <a class="navbar-brand">Nutrition Project</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
             aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,11 +46,12 @@
         </ul>
     </div>
 </nav>
-
+<div class="bg-light" style="min-height: 54em">
 <main role="main" class="container">
     {% block content %}
     {% endblock %}
 </main>
+</div>
 
 <script src="{% static "jquery-3.4.1.slim.min.js" %}"></script>
 <script src="{% static "bootstrap.bundle.min.js" %}"></script>

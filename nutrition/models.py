@@ -39,6 +39,9 @@ class MedicalInfo(models.Model):
     notes = models.CharField(max_length=120)
     condition = models.CharField(max_length=120)
 
+    def get_absolute_url(self):
+        return reverse('profile-detail', args=[self.id])
+
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
